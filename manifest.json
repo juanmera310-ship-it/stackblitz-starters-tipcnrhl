@@ -1,6 +1,6 @@
 {
   "name": "JAM ATTACK",
-  "short_name": "JamChef",
+  "short_name": "JamAttack",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a14",
