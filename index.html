@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JAM ATTACK: Progresivo</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #0a0a14;
+            touch-action: none;
+            font-family: 'Arial Black', sans-serif;
+            user-select: none;
+        }
+        canvas { display: block; }
+        
+        #ui-bar {
+            position: absolute;
+            top: 0; left: 0; width: 100%;
+            padding: 10px 15px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .stats-left { display: flex; gap: 10px; }
+
+        .stat-box {
+            background: rgba(0, 30, 60, 0.9);
+            padding: 5px 12px;
+            border-radius: 8px;
+            border: 2px solid #1E88E5;
+            color: #00BCD4;
+            font-size: 14px;
+            box-shadow: 0 0 10px rgba(30, 136, 229, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        span { color: #FFEB3B; font-size: 16px; }
+
+        /* El tiempo ahora es crucial, lo hacemos un poco más grande */
+        .timer-box {
+            border-color: #FF5722;
+            color: #FF5722;
+            min-width: 60px; /* Para que no salte cuando cambian los dígitos */
+            justify-content: center;
+        }
+        #time { color: white; font-size: 18px; }
+
+        #pauseBtn {
+            pointer-events: auto; 
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #FFEB3B;
+            color: white;
+            padding: 5px 12px;
+            font-size: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .overlay {
+            display: none;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            pointer-events: none;
+            z-index: 20;
+            width: 100%;
+        }
+
+        #levelMsg {
+            color: #FFEB3B;
+            font-size: 40px;
+            text-shadow: 0 0 20px #FF5722;
+        }
+
+        #gameOverScreen {
+            background: rgba(0, 0, 0, 0.9);
+            width: 100%; height: 100%;
+            pointer-events: auto;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .go-title {
+            color: #D32F2F; font-size: 50px; margin-bottom: 10px;
+            text-shadow: 2px 2px 0px white;
+        }
+        .go-subtitle { color: white; font-size: 18px; margin-bottom: 30px; }
+        
+        #restartBtn {
+            background: #00BCD4; border: none; padding: 15px 40px;
+            color: white; font-family: 'Arial Black', sans-serif;
+            font-size: 20px; border-radius: 30px; cursor: pointer;
+            box-shadow: 0 0 15px #00BCD4;
+        }
+        #restartBtn:active { transform: scale(0.95); }
+    </style>
+</head>
+<body>
+    <div id="ui-bar">
+        <div class="stats-left">
+            <div class="stat-box">NVL: <span id="level">1</span></div>
+            <div class="stat-box">META: <span id="progress">0/10</span></div>
+            <div class="stat-box timer-box">⏳ <span id="time">35</span></div>
+        </div>
+        <button id="pauseBtn">⏸️</button>
+    </div>
+    
+    <div id="levelOverlay" class="overlay"><div id="levelMsg">¡NIVEL COMPLETADO!</div></div>
+
+    <div id="gameOverScreen" class="overlay" style="display: none;">
+        <div class="go-title">GAME OVER</div>
+        <div class="go-subtitle">El tiempo se agotó, Chef.</div>
+        <button id="restartBtn">REINTENTAR</button>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>

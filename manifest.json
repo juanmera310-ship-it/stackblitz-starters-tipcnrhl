@@ -1,0 +1,16 @@
+{
+  "name": "JAM ATTACK",
+  "short_name": "JamChef",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0a14",
+  "theme_color": "#0a0a14",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/1046/1046784.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
