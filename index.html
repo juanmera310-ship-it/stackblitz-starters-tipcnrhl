@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JAM ATTACK: Progresivo</title>
+    
+    <title>JAM ATTACK</title>
+    
+    <link rel="manifest" href="manifest.json">
+    
+    <meta name="theme-color" content="#0a0a14">
+    
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
+
     <style>
+        /* TUS ESTILOS (IGUAL QUE ANTES) */
         body {
             margin: 0;
             overflow: hidden;
@@ -43,11 +53,10 @@
         }
         span { color: #FFEB3B; font-size: 16px; }
 
-        /* El tiempo ahora es crucial, lo hacemos un poco más grande */
         .timer-box {
             border-color: #FF5722;
             color: #FF5722;
-            min-width: 60px; /* Para que no salte cuando cambian los dígitos */
+            min-width: 60px;
             justify-content: center;
         }
         #time { color: white; font-size: 18px; }
@@ -75,9 +84,7 @@
         }
 
         #levelMsg {
-            color: #FFEB3B;
-            font-size: 40px;
-            text-shadow: 0 0 20px #FF5722;
+            color: #FFEB3B; font-size: 40px; text-shadow: 0 0 20px #FF5722;
         }
 
         #gameOverScreen {
